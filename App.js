@@ -12,12 +12,28 @@ const MainNav = TabNavigator({
 });
 
 
+
 export default class App extends React.Component {
+  constructor(){
+    super()
+    this.state = {
+      tasks:[]
+    }
+  }
+
+  addTask = (text) =>{
+    this.setState((prevState)=>{
+        return {
+          tasks: [...prevState.tasks, {key: text, done:false}]
+        }
+    })
+  }
+
   render() {
     return(
       <View style={{flex: 1}}>
         <View style={{height:24}}/>
-        <MainNav />
+        <MainNav screenProps={{tasks: this.state.tasks, addTask: this.addTask}} />
       </View>
      );
   }

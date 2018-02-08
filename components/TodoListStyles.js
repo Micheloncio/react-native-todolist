@@ -8,6 +8,9 @@ const TodoListStyles = StyleSheet.create({
     input: {
         height: 50,
         width: 300
+    },
+    textList:{
+        fontSize: 20
     }
 })
 
