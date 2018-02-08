@@ -1,6 +1,6 @@
 {
   "name": "react-native-todolist",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "devDependencies": {
     "react-native-scripts": "1.11.1",
@@ -21,6 +21,7 @@
   "dependencies": {
     "expo": "^25.0.0",
     "react": "16.2.0",
-    "react-native": "0.52.0"
+    "react-native": "0.52.0",
+    "react-navigation": "^1.0.0"
   }
 }
