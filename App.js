@@ -17,6 +17,7 @@ export default class App extends React.Component {
   constructor(){
     super()
     this.state = {
+      count: 1,
       tasks:[]
     }
   }
@@ -24,16 +25,34 @@ export default class App extends React.Component {
   addTask = (text) =>{
     this.setState((prevState)=>{
         return {
-          tasks: [...prevState.tasks, {key: text, done:false}]
+          tasks: [...prevState.tasks, {key: text, done:false, id: prevState.count}],
+          count: prevState.count + 1
         }
     })
+  }
+
+  changeToDone = (id) =>{
+    const tasks = this.state.tasks.map(task=>{
+      if(task.id === id){
+        task.done = true
+      }
+      return task
+    })
+    this.setState({tasks})
+  }
+
+  removeTask = (id)=>{
+    const tasks = this.state.tasks.filter(task=>{
+      return task.id!==id
+    })
+    this.setState({tasks})
   }
 
   render() {
     return(
       <View style={{flex: 1}}>
         <View style={{height:24}}/>
-        <MainNav screenProps={{tasks: this.state.tasks, addTask: this.addTask}} />
+        <MainNav screenProps={{tasks: this.state.tasks, addTask: this.addTask, changeToDone: this.changeToDone, removeTask: this.removeTask}} />
       </View>
      );
   }
