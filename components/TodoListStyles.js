@@ -16,7 +16,7 @@ const TodoListStyles = StyleSheet.create({
     },
     textList:{
         fontSize: 20,
-        marginTop: 10
+        marginTop: 50
     }
 })
 

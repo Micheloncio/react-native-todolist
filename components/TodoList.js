@@ -28,7 +28,10 @@ export default class TodoList extends React.Component{
                     value={this.state.text}
                     onSubmitEditing={this.addTask}
                 />
-                <ScrollView contentContainerStyle={TodoListStyles.scrollView}>
+                <ScrollView 
+                    contentContainerStyle={TodoListStyles.scrollView}
+                    showsVerticalScrollIndicator={false}
+                    >
                     <FlatList
                         data={this.props.screenProps.tasks}
                         renderItem={({item}) => <Text style={TodoListStyles.textList}>{item.key}</Text>}
