@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View, TextInput, FlatList } from 'react-native';
+import {Text, View, ScrollView, TextInput, FlatList } from 'react-native';
 import {TabNavigator} from 'react-navigation';
 import TodoListStyles from './TodoListStyles'
 
@@ -19,8 +19,8 @@ export default class TodoList extends React.Component{
     }
     render(){
         return(
+            
             <View style={TodoListStyles.view}>
-
                 <TextInput 
                     style={TodoListStyles.input} 
                     placeholder='Type here the task'
@@ -28,11 +28,12 @@ export default class TodoList extends React.Component{
                     value={this.state.text}
                     onSubmitEditing={this.addTask}
                 />
-
-                <FlatList
-          data={this.props.screenProps.tasks}
-          renderItem={({item}) => <Text style={TodoListStyles.textList}>{item.key}</Text>}
-        />
+                <ScrollView contentContainerStyle={TodoListStyles.scrollView}>
+                    <FlatList
+                        data={this.props.screenProps.tasks}
+                        renderItem={({item}) => <Text style={TodoListStyles.textList}>{item.key}</Text>}
+                    />
+                </ScrollView>
             </View>
         );
     }
