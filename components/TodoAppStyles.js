@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native'
 
-const TodoListStyles = StyleSheet.create({
+const TodoAppStyles = StyleSheet.create({
     view:{
         flex: 1, 
         alignItems: 'center' 
@@ -23,4 +23,4 @@ const TodoListStyles = StyleSheet.create({
     }
 })
 
-export default TodoListStyles;
+export default TodoAppStyles;

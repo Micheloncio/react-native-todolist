@@ -11,8 +11,6 @@ const MainNav = TabNavigator({
   Done: { screen: DoneList },
 });
 
-
-
 export default class App extends React.Component {
   constructor(){
     super()
