@@ -14,9 +14,12 @@ const TodoListStyles = StyleSheet.create({
         width: 300,
         fontSize: 20
     },
+    viewList: {
+        flexDirection: 'row'
+    },
     textList:{
         fontSize: 20,
-        marginTop: 50
+        marginTop: 10
     }
 })
 
