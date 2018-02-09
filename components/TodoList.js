@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View, ScrollView, TextInput, FlatList } from 'react-native';
+import {Text, View, ScrollView, TextInput, FlatList, Button } from 'react-native';
 import {TabNavigator} from 'react-navigation';
 import TodoListStyles from './TodoListStyles'
 
@@ -34,7 +34,23 @@ export default class TodoList extends React.Component{
                     >
                     <FlatList
                         data={this.props.screenProps.tasks}
-                        renderItem={({item}) => <Text style={TodoListStyles.textList}>{item.key}</Text>}
+                        renderItem={({item}) =>{
+                                if(!item.done){
+                                    return(                                    
+                                        <View style={TodoListStyles.viewList}>
+                                            <Text style={TodoListStyles.textList}>
+                                                {item.key + ' '}
+                                            </Text>
+                                            <Button
+                                                onPress={()=>this.props.screenProps.changeToDone(item.id)}
+                                                title='✔︎'
+                                                color='green'
+                                            />    
+                                       </View>
+                                    )
+                                }
+                            }                         
+                        }
                     />
                 </ScrollView>
             </View>
