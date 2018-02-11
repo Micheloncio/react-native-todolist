@@ -14,9 +14,12 @@ export default class TodoList extends React.Component{
         }
     }
     addTask = () =>{
-        this.props.screenProps.addTask(this.state.text)
-        this.setState({text:''})
+        if(this.state.text){
+            this.props.screenProps.addTask(this.state.text)
+            this.setState({text:''})
+        }
     }
+
     render(){
         return(
             
